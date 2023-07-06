@@ -2,7 +2,7 @@ import chart_studio.plotly as py
 import plotly.graph_objects as go
 import pandas as pd
 import chart_studio.tools as tls
-
+  
 df = pd.read_excel("CASSI in Cary's Bond Park - Rider Survey_800AM_20230606_Analysis Workbook_20230619.xlsx", "Rider Survey Responses (Final)")
 
 label = ["1 – Very safe","2 – Safe","3 – Neither safe nor unsafe (no opinion)","4 – Unsafe", "5 – Very unsafe", "1 – Very safe","2 – Safe","3 – Neither safe nor unsafe (no opinion)","4 – Unsafe", "5 – Very unsafe"]
@@ -23,13 +23,13 @@ target = [5,6,7,8,9,5,6,7,8,9,5,6,7,8,9,5,6,7,8,9,5,6,7,8,9]
 value = flatten_array
 
 
-colors = ["#2378bd","#6191ce","#929498","#f69171","#f36e4c",
-          "#2378bd","#6191ce","#929498","#f69171","#f36e4c",
-          "#2378bd","#6191ce","#929498","#f69171","#f36e4c",
-          "#2378bd","#6191ce","#929498","#f69171","#f36e4c",
-          "#2378bd","#6191ce","#929498","#f69171","#f36e4c"]
 
-link = dict(source = source, target = target, value = value, color=colors,
+colors = ["#1e23a6","#6191ce","#6e6f70","#f57b00","#c70c02",
+          "#1e23a6","#6191ce","#6e6f70","#f57b00","#c70c02",
+          "#1e23a6","#6191ce","#6e6f70","#f57b00","#c70c02",
+          "#1e23a6","#6191ce","#6e6f70","#f57b00","#c70c02",
+          "#1e23a6","#6191ce","#6e6f70","#f57b00","#c70c02",]
+link = dict(source = source, target = target, value = value, color=colors, 
             hovertemplate="Opinion before shuttle ride: %{source.label}<br />Opinion after shuttle ride: %{target.label}<br />Number of respondents: %{value:.0f}<extra></extra>")
 node = dict(label = label, pad=50, thickness=5, color=colors)
 data = go.Sankey(link = link, node=node)
